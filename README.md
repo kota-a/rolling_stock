@@ -16,4 +16,5 @@
     ```
 2. `cd rolling_stock`
 3. `npm install`
-4. `_run_android.bat` もしくは `_run_electron.bat` 実行
+4. `cordova platform add android`
+4. `cordova run android`
