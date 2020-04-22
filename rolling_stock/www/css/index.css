@@ -24,84 +24,92 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    font-size:12px;
+    font-family: meiryo system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:14px;
     height:100vh;
     margin:0px;
     padding:0px;
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
     text-transform:uppercase;
-    width:100%;
+    width:100vw;
 }
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #f4ffff;
+
+/*
+    border: 1px solid;
+    box-sizing: border-box;
+*/
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
+.items {
+    width: 100%;
+    height: 100%;
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+.item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: dotted 3px #b0c4de;
 }
 
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+.item_info {
+    display: inline-block;
+    width: calc(100% - 64px);
 }
 
-.event.listening {
-    background-color:#333333;
-    display:block;
+.item_name {
+    font-size: 18px;
+    width: 100%;
+    font-weight: bold;
 }
 
-.event.received {
-    background-color:#4B946A;
-    display:none;
+.item_stock_info {
+    width: 100%;
 }
 
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+.item_num {
+    margin-left: 10px;
 }
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+
+.item_buttons {
+    width: 64px;
 }
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+
+#item_template {
+    display: none;
+}
+
+.btn-circle-border-simple {
+    display: inline-block;
+    text-decoration: none;
+    color: #668ad8;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    border: solid 2px #668ad8;
+    text-align: center;
+    vertical-align: center;
+    overflow: hidden;
+    font-weight: bold;
+    transition: .4s;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.btn-circle-border-simple:hover {
+    background: #b3e1ff;
+}
+
+.btn-circle-border-simple:focus {
+    outline: 0;
 }

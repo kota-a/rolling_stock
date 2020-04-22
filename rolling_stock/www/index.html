@@ -28,22 +28,39 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src gap: 'unsafe-inline' *">
+        <!--
+            <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>Rolling Stock</title>
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+            <div id="test_field" style="color: #000000"></div>
+            <div class="items" id="items">
+                <div class="item" id="item_template">
+                    <span class="item_info">
+                        <div class="item_name"></div>
+                        <div class="item_stock_info">
+                            <span class="item_num item_required_num">必要数：<span class="item_required_num_val"></span></span>
+                            <span class="item_num item_stocked_num">ストック数：<span class="item_stocked_num_val"></span></span>
+                            <span class="item_num item_defective_num">不足数：<span class="item_defective_num_val"></span></span>
+                        </div>
+                    </span>
+                    <span class="item_buttons">
+                        <button class="item_dec btn-circle-border-simple">－</button>
+                        <button class="item_inc btn-circle-border-simple">＋</button>
+                    </span>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-3.5.0.min.js"></script>
+        <script type="text/javascript" src="js/redmine.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
