@@ -111,6 +111,9 @@ function reloadItems() {
             add_item.getElementsByClassName("item_required_num_val")[0].innerHTML = String( required_num );
             add_item.getElementsByClassName("item_stocked_num_val")[0].innerHTML = String( stocked_num );
             add_item.getElementsByClassName("item_defective_num_val")[0].innerHTML = String( defective_num );
+            if( defective_num > 0 ) {
+                add_item.getElementsByClassName("item_defective_num")[0].style.color = "#ff0000";
+            }
             add_item.getElementsByClassName("item_dec")[0].addEventListener("click", { item_id: item_id, handleEvent: itemDecriment });
             add_item.getElementsByClassName("item_inc")[0].addEventListener("click", { item_id: item_id, handleEvent: itemIncriment });
             items.appendChild(add_item); 
@@ -142,23 +145,30 @@ function changeItemNum( item_id, calculator ) {
     
     let elem_required_num = elem_item.getElementsByClassName("item_required_num_val")[0];
     let elem_stocked_num = elem_item.getElementsByClassName("item_stocked_num_val")[0];
+    let elem_defective = elem_item.getElementsByClassName("item_defective_num")[0];
     let elem_defective_num = elem_item.getElementsByClassName("item_defective_num_val")[0];
     
     let required_num = Number( elem_required_num.innerHTML );
     let stocked_num = calculator( Number( elem_stocked_num.innerHTML ) );
     let defective_num = calcDefectiveNum( required_num, stocked_num );
     
-    // Update server
-    updateTicketStockNum( item_id, stocked_num );
+    if( 0 <= stocked_num ) {
+        // Update server
+        updateTicketStockNum( item_id, stocked_num );
 
-    // Update display
-    elem_required_num.innerHTML = required_num;
-    elem_stocked_num.innerHTML = stocked_num;
-    elem_defective_num.innerHTML = defective_num;
-    
-    if( gIsFiltered == true ) {
+        // Update display
+        elem_required_num.innerHTML = required_num;
+        elem_stocked_num.innerHTML = stocked_num;
+        elem_defective_num.innerHTML = defective_num;
+        
         if( defective_num == 0 ) {
-            elem_item.style.display = "none";
+            elem_defective.style.color = "#000000";
+            
+            if( gIsFiltered == true ) {
+                elem_item.style.display = "none";
+            }
+        } else {
+            elem_defective.style.color = "#ff0000";
         }
     }
 }

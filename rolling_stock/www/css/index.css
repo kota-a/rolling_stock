@@ -80,6 +80,7 @@ body {
     display: flex;
     align-items: center;
     border-bottom: dotted 3px #dcdcdc;
+    padding: 3px 0px;
 }
 
 .item_info {
@@ -98,7 +99,12 @@ body {
 }
 
 .item_num {
-    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.item_num_val {
+    display: inline-block;
+    width: 20px;
 }
 
 .item_buttons {
