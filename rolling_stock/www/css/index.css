@@ -1,0 +1,159 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+*, *:before, *:after {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    font-family: 'Meiryo UI' 'メイリオ', 'Meiryo' system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:14px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+    text-transform:uppercase;
+    width:100vw;
+}
+
+.header {
+    width: 100%;
+    height: 55px;
+    background-color: #668ad8;
+}
+
+.header_blank {
+    display: inline-block;
+    height: 100%;
+    width: calc(100% - 98px);
+}
+
+.control_buttons {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 94px;
+    padding-top: 15px;
+}
+
+.control_button {
+    margin-right: 12px;
+    height: 30px;
+    width: 30px;
+}
+
+.body {
+    height: calc(100% - 55px);
+    width: 100%;
+    padding: 0px 10px;
+    background-color: #f4ffff;
+}
+
+.items {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: dotted 3px #dcdcdc;
+    padding: 3px 0px;
+}
+
+.item_info {
+    display: inline-block;
+    width: calc(100% - 64px);
+}
+
+.item_name {
+    font-size: 18px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.item_stock_info {
+    width: 100%;
+}
+
+.item_num {
+    padding-left: 10px;
+}
+
+.item_num_val {
+    display: inline-block;
+    width: 20px;
+}
+
+.item_buttons {
+    display: inline-block;
+    width: 64px;
+}
+
+#item_template {
+    display: none;
+}
+
+.btn-circle-border-simple {
+    display: inline-block;
+    text-decoration: none;
+    color: #668ad8;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    border: solid 2px #668ad8;
+    text-align: center;
+    vertical-align: center;
+    overflow: hidden;
+    font-weight: bold;
+    transition: .4s;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    background: #dcdcdc;
+}
+
+.btn-circle-border-simple:active {
+    background: #b3e1ff;
+}
+
+.btn-circle-border-simple:focus {
+    outline: 0;
+}
+
+#reloading_img {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    height: 100px;
+    width: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
