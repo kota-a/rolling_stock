@@ -16,15 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-* {
+*, *:before, *:after {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    box-sizing: border-box;
 }
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    font-family: meiryo system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-family: 'Meiryo UI' 'メイリオ', 'Meiryo' system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:14px;
     height:100vh;
     margin:0px;
@@ -35,29 +36,50 @@ body {
     width:100vw;
 }
 
-/* Portrait layout (default) */
-.app {
-    height: calc(100% - 20px);
-    width: calc(100% - 20px);
-    padding: 10px;
-    background-color: #f4ffff;
+.header {
+    width: 100%;
+    height: 55px;
+    background-color: #668ad8;
+}
 
-/*
-    border: 1px solid;
-    box-sizing: border-box;
-*/
+.header_blank {
+    display: inline-block;
+    height: 100%;
+    width: calc(100% - 98px);
+}
+
+.control_buttons {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 94px;
+    padding-top: 15px;
+}
+
+.control_button {
+    margin-right: 12px;
+    height: 30px;
+    width: 30px;
+}
+
+.body {
+    height: calc(100% - 55px);
+    width: 100%;
+    padding: 0px 10px;
+    background-color: #f4ffff;
 }
 
 .items {
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 .item {
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: dotted 3px #b0c4de;
+    border-bottom: dotted 3px #dcdcdc;
 }
 
 .item_info {
@@ -80,6 +102,7 @@ body {
 }
 
 .item_buttons {
+    display: inline-block;
     width: 64px;
 }
 
@@ -104,12 +127,27 @@ body {
     padding: 0px;
     margin: 0px;
     font-weight: bold;
+    background: #dcdcdc;
 }
 
-.btn-circle-border-simple:hover {
+.btn-circle-border-simple:active {
     background: #b3e1ff;
 }
 
 .btn-circle-border-simple:focus {
     outline: 0;
+}
+
+#reloading_img {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    height: 100px;
+    width: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
 }

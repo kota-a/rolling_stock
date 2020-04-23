@@ -39,10 +39,16 @@
         <title>Rolling Stock</title>
     </head>
     <body>
-        <div class="app">
-            <div id="test_field" style="color: #000000"></div>
-            <div class="items" id="items">
-                <div class="item" id="item_template">
+        <div class="header">
+            <span class="header_blank"></span>
+            <span class="control_buttons">
+                <img id="filter" class="control_button" src="img/filter.png"></img>
+                <img id="reload" class="control_button"  src="img/reload.png"></img>
+            </span>
+        </div>
+        <div class="body">
+            <div id="item_template">
+                <div class="item">
                     <span class="item_info">
                         <div class="item_name"></div>
                         <div class="item_stock_info">
@@ -57,6 +63,9 @@
                     </span>
                 </div>
             </div>
+            <div class="items" id="items">
+            </div>
+            <img id="reloading_img" src="img/reload.png"></img>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/lib/jquery-3.5.0.min.js"></script>
