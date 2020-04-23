@@ -1,2 +1,2 @@
-cordova build
+cordova build android
 pause
