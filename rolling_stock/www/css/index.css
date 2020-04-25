@@ -80,7 +80,7 @@ body {
     display: flex;
     align-items: center;
     border-bottom: dotted 3px #dcdcdc;
-    padding: 3px 0px;
+    padding: 5px 0px;
 }
 
 .item_info {
@@ -92,19 +92,23 @@ body {
     font-size: 18px;
     width: 100%;
     font-weight: bold;
+    padding-bottom: 2px;
 }
 
 .item_stock_info {
+    display: inline-flex;
+    justify-content: flex-start;
     width: 100%;
+    font-size:13px;
+    padding-left: 10px;
 }
 
 .item_num {
-    padding-left: 10px;
 }
 
 .item_num_val {
     display: inline-block;
-    width: 20px;
+    width: 28px;
 }
 
 .item_buttons {
