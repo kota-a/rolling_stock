@@ -17,6 +17,7 @@
  * under the License.
  */
 
+const SHORTAGE_COLOR = "#3065D8";
 let gIsFiltered = false;
 
 var app = {
@@ -112,7 +113,7 @@ function reloadItems() {
             add_item.getElementsByClassName("item_stocked_num_val")[0].innerHTML = String( stocked_num );
             add_item.getElementsByClassName("item_defective_num_val")[0].innerHTML = String( defective_num );
             if( defective_num > 0 ) {
-                add_item.getElementsByClassName("item_defective_num")[0].style.color = "#ff0000";
+                add_item.getElementsByClassName("item_defective_num")[0].style.color = SHORTAGE_COLOR;
             }
             add_item.getElementsByClassName("item_dec")[0].addEventListener("click", { item_id: item_id, handleEvent: itemDecriment });
             add_item.getElementsByClassName("item_inc")[0].addEventListener("click", { item_id: item_id, handleEvent: itemIncriment });
@@ -168,7 +169,7 @@ function changeItemNum( item_id, calculator ) {
                 elem_item.style.display = "none";
             }
         } else {
-            elem_defective.style.color = "#ff0000";
+            elem_defective.style.color = SHORTAGE_COLOR;
         }
     }
 }

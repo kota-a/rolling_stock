@@ -32,7 +32,7 @@ body {
     padding:0px;
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
-    text-transform:uppercase;
+    text-transform:none;
     width:100vw;
 }
 
@@ -66,7 +66,7 @@ body {
     height: calc(100% - 55px);
     width: 100%;
     padding: 0px 10px;
-    background-color: #f4ffff;
+    background-color: #fAffff;
 }
 
 .items {
@@ -80,7 +80,7 @@ body {
     display: flex;
     align-items: center;
     border-bottom: dotted 3px #dcdcdc;
-    padding: 3px 0px;
+    padding: 5px 0px;
 }
 
 .item_info {
@@ -92,19 +92,23 @@ body {
     font-size: 18px;
     width: 100%;
     font-weight: bold;
+    padding-bottom: 2px;
 }
 
 .item_stock_info {
+    display: inline-flex;
+    justify-content: flex-start;
     width: 100%;
+    font-size:13px;
+    padding-left: 10px;
 }
 
 .item_num {
-    padding-left: 10px;
 }
 
 .item_num_val {
     display: inline-block;
-    width: 20px;
+    width: 28px;
 }
 
 .item_buttons {
